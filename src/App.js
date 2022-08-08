@@ -5,6 +5,7 @@ import "./App.css";
 import { useState } from "react";
 import Form from "./components/Form";
 import Error from "./components/Error";
+import Success from "./components/Success";
 /**
  * 
  *This React portal component exists outside the DOM hierarchy of the parent component.
@@ -14,11 +15,14 @@ import Error from "./components/Error";
 
 function App() {
   const [showErrorModal, setShowErrorModal] = useState(false);
+  const [showSucessModal, setShowSucessModal] = useState(false);
   const InputDataFormHandler = (inputData) => {
     if (inputData?.name === "" && inputData?.Email === "") {
       setShowErrorModal(true);
+      setShowSucessModal(false);
     } else {
       setShowErrorModal(false);
+      setShowSucessModal(true);
     }
   };
   return (
@@ -31,6 +35,7 @@ function App() {
         ) : (
           ""
         )}
+        {showSucessModal && <Success setShowSucessModal={setShowSucessModal} />}
       </div>
     </React.Fragment>
   );

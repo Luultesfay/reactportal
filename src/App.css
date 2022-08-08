@@ -1,14 +1,17 @@
+body {
+  overflow: auto;
+}
 .App {
   display: flex;
   flex-direction: column;
   text-align: center;
   justify-content: center;
   position: relative;
-  left: 20%;
+
   bottom: 50%;
-  font-size: 20px;
   width: 100%;
-  background-color: antiquewhite;
+
+  font-size: 20px;
 }
 /* .greeting {
   font-size: 30px;
@@ -19,19 +22,56 @@ h1 {
 form {
   display: flex;
   flex-direction: row;
+  position: relative;
+  left: 34%;
 }
 
 .Error--description {
+  position: relative;
   display: flex;
   justify-content: center;
-  background-color: rgb(202, 246, 202);
+  background-color: rgb(250, 247, 247);
   align-items: center;
 
   margin: 10px;
   font-size: 20px;
   width: 50%;
   padding: 100px;
-  border: green dotted 5px;
+  border: hsla(120, 7%, 22%, 0.784) solid 5px;
+  z-index: 1000;
+  top: 10%;
+  right: 15%;
+  transform: translate(50%, 50%);
+  /* border: green dotted 5px;
+  position: fixed;
+  background-color: rgb(67, 32, 32);
+  top: 10%;
+  left: 10%;
+  transform: translate(50%, 50%);
+  padding: 100%;
+  z-index: 100; */
+}
+.close {
+  color: white;
+  border: solid black 1px;
+  border-radius: 50%;
+  background-color: black;
+  font-size: 20px;
+  position: absolute;
+  left: 98%;
+  top: 0.5%;
+}
+p {
+  font-size: 40px;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
 }
 .form__container {
   display: flex;
@@ -50,7 +90,25 @@ button {
   padding: 30px 50px;
   margin: 10px;
 }
-@media (max-width: 600px) {
+.success {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(250, 247, 247);
+  align-items: center;
+
+  margin: 10px;
+  font-size: 20px;
+  width: 50%;
+  padding: 100px;
+  border: hsla(120, 7%, 22%, 0.784) solid 5px;
+  z-index: 1000;
+  top: 10%;
+  right: 15%;
+  transform: translate(50%, 50%);
+}
+
+@media (max-width: 800px) {
   .App {
     display: flex;
     flex-direction: column;
@@ -58,6 +116,10 @@ button {
 
     justify-content: center;
     flex-wrap: wrap;
+  }
+  h1 {
+    text-align: center;
+    margin-left: 15rem;
   }
   form {
     display: flex;
@@ -69,10 +131,13 @@ button {
     background-color: rgb(202, 246, 202);
     align-items: center;
 
-    font-size: 20px;
+    font-size: 15px;
     width: auto;
     padding: 100px;
-    border: green dotted 5px;
+    border: green solid 5px;
+    top: 10%;
+    left: 10%;
+    transform: translate(50%, 50%);
   }
   .form__container {
     display: flex;
