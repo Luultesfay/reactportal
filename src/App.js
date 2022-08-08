@@ -1,7 +1,10 @@
 import React from "react";
 import "./App.css";
-import Greeting from "./Greeting";
-import portalDom from "react-dom";
+//import Greeting from "./Greeting";
+//import portalDom from "react-dom";
+import { useState } from "react";
+import Form from "./components/Form";
+import Error from "./components/Error";
 /**
  * 
  *This React portal component exists outside the DOM hierarchy of the parent component.
@@ -10,10 +13,25 @@ import portalDom from "react-dom";
  */
 
 function App() {
+  const [showErrorModal, setShowErrorModal] = useState(false);
+  const InputDataFormHandler = (inputData) => {
+    if (inputData?.name === "" && inputData?.Email === "") {
+      setShowErrorModal(true);
+    } else {
+      setShowErrorModal(false);
+    }
+  };
   return (
     <React.Fragment>
-      <div className="App">heloo green man</div>
-      {portalDom.createPortal(<Greeting />, document.getElementById("portal"))}
+      <div className="App">
+        {/* {portalDom.createPortal(<Greeting />, document.getElementById("portal"))} */}
+        <Form onSaveData={InputDataFormHandler} />
+        {showErrorModal === true ? (
+          <Error setShowErrorModal={setShowErrorModal} />
+        ) : (
+          ""
+        )}
+      </div>
     </React.Fragment>
   );
 }
