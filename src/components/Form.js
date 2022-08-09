@@ -24,6 +24,10 @@ Refs are useful when getting user input, DOM element properties and storing cons
 
 If you are storing component related info or use methods in components, however, states are the best option.} props 
  *
+// important note :  if we access user value using 'ref' then the vlaue is unconrolled by react(called also unconrolled componenet)
+//but if we access using use state to the user input then its conrolled value(also called controlled componenet)
+
+so we have here uncontroled component  but in master branch we have controled component since we use  useState we control every keystrok by react
  */
 const Form = (props) => {
   const inputUserName = useRef();
